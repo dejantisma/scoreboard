@@ -10,34 +10,32 @@ import Link from 'next/link';
 
 const getCloseGame = (games) => {
 
-  return {
-    game: games[1],
+  //console.log(games);
+  // return {
+  //   game: games[1]
     
-  }
+  // }
 
   for(var i = 0; i < games.length; i++){
     if(games[i].gameStatusText.startsWith('Q4')){ 
       if(games[i].homeTeam.score - games[i].awayTeam.score <= 10 ){
         console.log('entered');
         return {  
-          game:`${games[i]}`,
+          game: games[i],
           leader: games[i].homeTeam,
-          scoreDiff: `${games[i].homeTeam.score - games[i].awayTeam.score}`
+          scoreDiff: games[i].homeTeam.score - games[i].awayTeam.score
         }
       } else if(games[i].awayTeam.score - games[i].homeTeam.score <= 10 ){
         console.log('entered');
         return {  
-          game:`${games[i]}`,
+          game:games[i],
           leader: games[i].awayTeam,
-          scoreDiff: `${games[i].awayTeam.score - games[i].homeTeam.score}`
+          scoreDiff: games[i].awayTeam.score - games[i].homeTeam.score
         }
       }
     }
   }
 
- 
-
- 
 
 
 
@@ -57,9 +55,8 @@ export default function Home( {scoreboardData } ) {
 
   var games = scoreboardData.scoreboard.games;
   var closeGame = getCloseGame(games);
- // console.log(closeGame);
-  var str = (JSON.stringify(closeGame));
-  console.log(str);
+  console.log(JSON.stringify(closeGame.leader));
+ 
   return (
     <Layout home>
       <Head>
@@ -68,11 +65,14 @@ export default function Home( {scoreboardData } ) {
       <section className={utilStyles.headingMd}>
       </section>
 
-{closeGame ? 
+      
+
+
+{closeGame ?  //if close game display alert
       <Alert variant="danger">
-        <Alert.Heading>Down to the wire in {"game".gameId}!</Alert.Heading>
+        <Alert.Heading>Down to the wire in <Link href={`/posts/${closeGame.game.gameId}`}><a>{closeGame.game.homeTeam.teamCity}</a></Link>!</Alert.Heading>
         <p>
-          in the 4th quarter!
+          {closeGame.leader.teamName} up {closeGame.scoreDiff} with         {closeGame.game.gameStatusText.slice(4)} left to go in the 4th.
         </p>
       </Alert>
 
