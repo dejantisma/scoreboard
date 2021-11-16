@@ -7,17 +7,55 @@
   }
   
   .headingXl {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1.3;
     font-weight: 800;
     letter-spacing: -0.05rem;
     margin: 1rem 0;
+    text-align: center;
+    
+
   }
+
+  .scoreInline {
+    font-size: 4rem;
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    display: inline-block;
+  }
+
+  .clockInline {
+    font-size: 2rem;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: -0.05rem;
+    display: inline-block;
+  }
+  
+  .imageInline{
+    display: inline-block;
+  }
+
+  .imageCenter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
   
   .headingLg {
     font-size: 1.5rem;
     line-height: 1.4;
     margin: 1rem 0;
+  }
+
+  .headingLgInline {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin: 1rem 0;
+    display: inline;
+    text-align: center;
   }
   
   .headingMd {
@@ -50,3 +88,5 @@
   .lightText {
     color: #666;
   }
+
+  
