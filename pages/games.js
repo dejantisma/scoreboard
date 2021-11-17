@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image'
 import Head from 'next/head'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Table } from 'react-bootstrap';
+import { Container, Card, Row, Col, Table } from 'react-bootstrap';
 import Link from 'next/link';
 
 
@@ -26,12 +26,21 @@ export default function Games({ scoreboardData }) {
   return (
 
     <Container>
+      
 
-      <h1>First Post</h1>
+      <Card border="secondary" style={{ width: '18rem' }}>
+    <Card.Header>Header</Card.Header>
+    <Card.Body>
+      <Card.Title>Secondary Card Title</Card.Title>
+      <Card.Text>
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </Card.Text>
+    </Card.Body>
+  </Card>
 
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>LIVE</h2>
         <ul className={utilStyles.list}>
           {games.map(({ gameId, gameStatusText, homeTeam, awayTeam }) => (
             <li className={utilStyles.listItem} key={gameId}>

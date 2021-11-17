@@ -7,6 +7,18 @@ import { getScoreboardData } from '../lib/posts'
 import Link from 'next/link';
 
 
+const Emoji = props => (
+  <span
+      className="emoji"
+      role="img"
+      aria-label={props.label ? props.label : ""}
+      aria-hidden={props.label ? "false" : "true"}
+  >
+      {props.symbol}
+  </span>
+);
+
+
 
 const getCloseGame = (games) => {
 
@@ -81,7 +93,7 @@ export default function Home( {scoreboardData } ) {
 <Link href="/games">
 <Card style={{ cursor: "pointer" }} border="info">
 
-    <Card.Header><Card.Title>Live games</Card.Title></Card.Header>
+    <Card.Header><Card.Title><Emoji symbol="📋"/> Scores</Card.Title></Card.Header>
     <Card.Body>
       <Card.Text>
         Catch all of tonight's action here.
@@ -93,7 +105,7 @@ export default function Home( {scoreboardData } ) {
   <br/> <br/>
 
   <Card border="info">
-    <Card.Header><Card.Title>Daily leaders</Card.Title></Card.Header>
+    <Card.Header><Card.Title><Emoji symbol='🥇'/> Leaders</Card.Title></Card.Header>
     <Card.Body>
       <Card.Text>
         Who balled out tonight? Click here to find out.
