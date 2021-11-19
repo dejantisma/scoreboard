@@ -3,10 +3,10 @@ import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
-import Container from 'react-bootstrap/Container'
+import Emoji from '../lib/emoji'
 
-const name = 'Scoreboard'
-export const siteTitle = 'Next.js Sample Website'
+
+const name = <Emoji symbol="🏀"/>;
 
 export default function Layout({ children, home }) {
   return (

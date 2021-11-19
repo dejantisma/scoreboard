@@ -46,7 +46,7 @@ export default function Post({ gameData }) {
             <p style={{ textAlign: 'center', margin: 20 }}>{game.homeTeam.wins + '-' + game.homeTeam.losses}</p>
           </Col>
         </Row>
-
+{/* 
         <Table size="sm">
           <thead>
             <tr>
@@ -74,17 +74,10 @@ export default function Post({ gameData }) {
               <td>@twitter</td>
             </tr>
           </tbody>
-        </Table>
-
+        </Table> */}
 
       </Container>
-
-
     </Layout>
-
-
-
-
 
   )
 }

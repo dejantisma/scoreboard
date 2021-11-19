@@ -18,44 +18,28 @@ export async function getStaticProps() {
   }
 }
 
-
 export default function Games({ scoreboardData }) {
-
   var games = scoreboardData.scoreboard.games;
 
   return (
 
     <Container>
-      
-
-      <Card border="secondary" style={{ width: '18rem' }}>
-    <Card.Header>Header</Card.Header>
-    <Card.Body>
-      <Card.Title>Secondary Card Title</Card.Title>
-      <Card.Text>
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </Card.Text>
-    </Card.Body>
-  </Card>
-
-
+      <Head>
+        <title>Games</title>
+      </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <ul className={utilStyles.list}>
           {games.map(({ gameId, gameStatusText, homeTeam, awayTeam }) => (
             <li className={utilStyles.listItem} key={gameId}>
               <Link href={`/games/${gameId}`}>
-            <a>{awayTeam.teamCity + ' '+ awayTeam.teamName + ' @ '+homeTeam.teamCity + ' '+ homeTeam.teamName} </a>
-          </Link>
+                <a>{awayTeam.teamCity + ' ' + awayTeam.teamName + ' @ ' + homeTeam.teamCity + ' ' + homeTeam.teamName} </a>
+              </Link>
             </li>
           ))}
         </ul>
       </section>
-
     </Container>
-
   )
-
 }
 
 
