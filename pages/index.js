@@ -33,7 +33,8 @@ export async function getStaticProps() {
   const scoreboardData = await getScoreboardData();
   return {
     props: {
-      scoreboardData
+      scoreboardData,
+      revalidate: 5
     }
   }
 }
