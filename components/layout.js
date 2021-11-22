@@ -14,15 +14,13 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
         {home ? (
           <>
-            <Image
-              
+            <Image        
               src="https://cdn.nba.com/manage/2021/07/NBA_75-690x588.jpg"
-              alt={name}
               height="100%"
               width="100%"
           
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <h1>{name}</h1>
           </>
         ) 
         
