@@ -11,13 +11,13 @@ const getCloseGame = (games) => {
 
   for (var i = 0; i < games.length; i++) {
     if (games[i].gameStatusText.startsWith('Q4')) {
-      if (games[i].homeTeam.score - games[i].awayTeam.score <= 10) {
+      if (games[i].homeTeam.score - games[i].awayTeam.score <= 9 && games[i].homeTeam.score - games[i].awayTeam.score >= 1) {
         return {
           game: games[i],
           leader: games[i].homeTeam,
           scoreDiff: games[i].homeTeam.score - games[i].awayTeam.score
         }
-      } else if (games[i].awayTeam.score - games[i].homeTeam.score <= 10) {
+      } else if (games[i].awayTeam.score - games[i].homeTeam.score <= 9 && games[i].awayTeam.score - games[i].homeTeam.score >= 1) {
         return {
           game: games[i],
           leader: games[i].awayTeam,
