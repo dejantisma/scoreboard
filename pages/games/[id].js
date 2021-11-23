@@ -32,8 +32,8 @@ export default function Post({ gameData }) {
         <Row>
           <Col>
             <Image src={awayTeamLogoURL} height={200} width={200}></Image>
-            <p style={{ textAlign: 'center', margin: -25 }}>{game.awayTeam.teamCity + ' ' + game.awayTeam.teamName}</p>
-            <p style={{ textAlign: 'center', margin: 20 }}>{game.awayTeam.wins + '-' + game.awayTeam.losses}</p>
+            <p style={{ textAlign: 'center' }}>{game.awayTeam.teamCity + ' ' + game.awayTeam.teamName}</p>
+            <p style={{ textAlign: 'center', lineHeight:.2}}>{game.awayTeam.wins + '-' + game.awayTeam.losses}</p>
           </Col>
           <Col lg={7} style={{ textAlign: 'center' }}>
             <h1 className={utilStyles.scoreInline}>{game.awayTeam.score}</h1>
@@ -42,8 +42,8 @@ export default function Post({ gameData }) {
           </Col>
           <Col>
             <Image src={homeTeamLogoURL} height={200} width={200}></Image>
-            <p style={{ textAlign: 'center', margin: -25 }}>{game.homeTeam.teamCity + ' ' + game.homeTeam.teamName}</p>
-            <p style={{ textAlign: 'center', margin: 20 }}>{game.homeTeam.wins + '-' + game.homeTeam.losses}</p>
+            <p style={{ textAlign: 'center'  }}>{game.homeTeam.teamCity + ' ' + game.homeTeam.teamName}</p>
+            <p style={{ textAlign: 'center',lineHeight:.2 }}>{game.homeTeam.wins + '-' + game.homeTeam.losses}</p>
           </Col>
         </Row>
 {/* 

@@ -34,7 +34,7 @@ export async function getStaticProps() {
   return {
     props: {
       scoreboardData,
-      revalidate: 5
+      revalidate: 10
     }
   }
 }
@@ -67,7 +67,7 @@ export default function Home({ scoreboardData }) {
 
         }
      <br />
-<Link href='/leaders'>
+<Link href='/search'>
           <Card style={{ cursor: 'pointer' }} border="info">
             <Card.Header><Card.Title><Emoji symbol='🔍' /> Search</Card.Title></Card.Header>
             <Card.Body>
