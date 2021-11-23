@@ -15,8 +15,8 @@ export async function getStaticProps() {
   return {
     props: {
       scoreboardData,
-      revalidate: 10
-    }
+    },
+    revalidate: 10
   }
 }
 
@@ -26,13 +26,9 @@ export default function Leaders({ scoreboardData }) {
     return [game.gameLeaders.homeLeaders, game.gameLeaders.awayLeaders]
   });
 
-  
-  console.log(leaders);
+  leaders = leaders.filter(leader => leader.personId != 0 && leader.playerSlug === null);
+  console.log(leaders.length === undefined);
 
-  leaders = leaders.filter(leader => leader.personId != 0 && leader.playerSlug != null);
-  
-  console.log(leaders);
-  
   return (
     <Layout>
       <Container>

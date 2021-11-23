@@ -7,7 +7,7 @@ import { getScoreboardData } from '../lib/posts'
 import Link from 'next/link';
 import Emoji from '../lib/emoji'
 
-const fetcher = (...args) => fetch(...args).then(res => res.json());
+
 
 const getCloseGame = (games) => {
 
@@ -36,8 +36,8 @@ export async function getStaticProps() {
   return {
     props: {
       scoreboardData,
-      revalidate: 10
-    }
+    },
+    revalidate: 10
   }
 }
 
