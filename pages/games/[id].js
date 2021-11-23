@@ -27,6 +27,7 @@ export default function Post({ gameData }) {
         <h1 className={utilStyles.scoreInline}>{game.homeTeam.score}  </h1>
         <Image src={homeTeamLogoURL} height={200} width={200} className={utilStyles.imageInline}></Image>
       </div> */}
+      
 
       <Container>
         <Row>
@@ -94,7 +95,8 @@ export async function getStaticProps({ params }) {
   const gameData = await getGameData(params.id)
   return {
     props: {
-      gameData
+      gameData,
+      revalidate: 10
     }
   }
 }

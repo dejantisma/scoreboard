@@ -26,9 +26,13 @@ export default function Leaders({ scoreboardData }) {
     return [game.gameLeaders.homeLeaders, game.gameLeaders.awayLeaders]
   });
 
-  leaders = leaders.filter(leader => leader.personId != 0 && leader.playerSlug === null);
+  
   console.log(leaders);
 
+  leaders = leaders.filter(leader => leader.personId != 0 && leader.playerSlug != null);
+  
+  console.log(leaders);
+  
   return (
     <Layout>
       <Container>

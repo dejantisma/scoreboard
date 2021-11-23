@@ -7,6 +7,8 @@ import { getScoreboardData } from '../lib/posts'
 import Link from 'next/link';
 import Emoji from '../lib/emoji'
 
+const fetcher = (...args) => fetch(...args).then(res => res.json());
+
 const getCloseGame = (games) => {
 
   for (var i = 0; i < games.length; i++) {
