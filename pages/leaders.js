@@ -25,7 +25,6 @@ export default function Leaders({ scoreboardData }) {
   });
 
   leaders = leaders.filter(leader => leader.personId != 0);
-  console.log(leaders.length === undefined);
 
   return (
     <Layout>
