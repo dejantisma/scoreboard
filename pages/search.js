@@ -30,22 +30,24 @@ export default function Search({ scoreboardData }) {
 
 
     const searchPlayer = (e) => {
-
-        fetch(`https://content-api-prod.nba.com/public/1/search/team,player?q=${encodeURIComponent(searchInput)}&page=1&count=10&offset=0&sources=league&region=united-states&sort=rel`, {
+        fetch(`https://content-api-prod.nba.com/public/1/search/player?q=${encodeURIComponent(searchInput)}&page=1&count=10&offset=0&sources=league&region=united-states&sort=rel`, {
             "headers": {
-                "accept": "*/*",
-                "accept-language": "en-US,en;q=0.9",
-                "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\"",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site",
-                "Referer": "https://www.nba.com/",
+              "accept": "*/*",
+              "accept-language": "en-US,en;q=0.9",
+              "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"",
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": "\"Windows\"",
+              "sec-fetch-dest": "empty",
+              "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-site"
             },
+            "referrer": "https://www.nba.com/",
+            "referrerPolicy": "strict-origin-when-cross-origin",
             "body": null,
-            "method": "GET"
-        }).then(response => {
+            "method": "GET",
+            "mode": "cors",
+            "credentials": "omit"
+          }).then(response => {
             if (response.ok) {
                 return response.json();
             } else {
