@@ -2,12 +2,10 @@
 import { getScoreboardData } from '../lib/posts'
 import utilStyles from '../styles/utils.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Image from 'next/image'
 import Head from 'next/head'
 import Layout from '../components/layout'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Alert, Row, Col, Table } from 'react-bootstrap';
-import Link from 'next/link';
 import { getMainColor, getSecondaryColor } from 'nba-color';
 
 export async function getStaticProps() {
@@ -26,7 +24,7 @@ export default function Leaders({ scoreboardData }) {
     return [game.gameLeaders.homeLeaders, game.gameLeaders.awayLeaders]
   });
 
-  leaders = leaders.filter(leader => leader.personId != 0 && leader.playerSlug === null);
+  leaders = leaders.filter(leader => leader.personId != 0);
   console.log(leaders.length === undefined);
 
   return (

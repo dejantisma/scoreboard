@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Head from 'next/head'
 import Layout from '../components/layout'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Form, Button, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
+import { Container, Badge, Button, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import Link from 'next/link';
 import { getMainColor, getSecondaryColor } from 'nba-color';
 
@@ -25,38 +25,41 @@ export async function getStaticProps() {
 
 export default function Search({ scoreboardData }) {
 
-const [searchInput, setSearchInput] = useState('');
-const [player, setPlayer] = useState('');
+    const [searchInput, setSearchInput] = useState('');
+    const [player, setPlayer] = useState(null);
 
 
-const searchPlayer = (e) => {
+    const searchPlayer = (e) => {
 
-    fetch(`https://content-api-prod.nba.com/public/1/search/team,player?q=${encodeURIComponent(searchInput)}&page=1&count=10&offset=0&sources=league&region=united-states&sort=rel`, {
-        "headers": {
-          "accept": "*/*",
-          "accept-language": "en-US,en;q=0.9",
-          "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"",
-          "sec-ch-ua-mobile": "?0",
-          "sec-ch-ua-platform": "\"Windows\"",
-          "sec-fetch-dest": "empty",
-          "sec-fetch-mode": "cors",
-          "sec-fetch-site": "same-site",
-          "Referer": "https://www.nba.com/",
-        },
-        "body": null,
-        "method": "GET"
-      }).then(response =>{
-    if(response.ok){
-        return response.json();
-    } else{
-        throw new Error('Something went wrong');
+        fetch(`https://content-api-prod.nba.com/public/1/search/team,player?q=${encodeURIComponent(searchInput)}&page=1&count=10&offset=0&sources=league&region=united-states&sort=rel`, {
+            "headers": {
+                "accept": "*/*",
+                "accept-language": "en-US,en;q=0.9",
+                "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "\"Windows\"",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site",
+                "Referer": "https://www.nba.com/",
+            },
+            "body": null,
+            "method": "GET"
+        }).then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Something went wrong');
+            }
+        }).then(data => {
+            if (data.results.count != 0) {
+                console.log(data);
+                setPlayer(data.results.items[0]);
+            }
+
+        })
+
     }
-}).then(data =>{
-    setPlayer(data.results.items[0]);
-    console.log(player);
-})
-
-}
 
     return (
         <Layout>
@@ -64,6 +67,7 @@ const searchPlayer = (e) => {
                 <Head>
                     <title>Search</title>
                 </Head>
+                <Badge bg="secondary">Beta</Badge>
                 <Row>
                     <InputGroup className="mb-3">
                         <FormControl
@@ -76,11 +80,27 @@ const searchPlayer = (e) => {
                             Search
                         </Button>
                     </InputGroup>
+                    
                 </Row>
                 <Row>
+                <Col/>
+                    <Col>
+                    {
 
-                <img width="400" src={`https://cdn.nba.com/headshots/nba/latest/1040x760/${player.pid}.png`} />
+                        player === null ? <></> :
+                        <div className={utilStyles.parent}>
+                        <br />
+                        <svg width="600" height="380">
+                          <rect width="600" height="380" rx='15' className={utilStyles.image1} style={{ fill: `${getMainColor(player.teamAbbr).hex}` }} />
+                        </svg>
+                        <img className={utilStyles.iamge2Search} width="500" src={`https://cdn.nba.com/headshots/nba/latest/1040x760/${player.pid}.png`} />
+                        <p style={{ color: `${getSecondaryColor(player.teamAbbr).hex}` }} className={utilStyles.statsSearch}>{player.ppg}p<br />{player.rpg}r<br />{player.apg}a</p>
+                        <br />
+                      </div>
 
+                    }
+                    </Col>
+                    <Col/>
                 </Row>
 
 
