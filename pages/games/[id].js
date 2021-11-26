@@ -7,9 +7,9 @@ import { Container, Row, Col, Table } from 'react-bootstrap';
 import utilStyles from '../../styles/utils.module.css'
 import React, { useState } from 'react';
 
-export default function Post({ gameData }) {
+export default async function Post({ gameData }) {
  
-  var game = gameData.result[0];
+  var game = await gameData.result[0];
   var homeTeamLogoURL = `https://cdn.nba.com/logos/nba/${game.homeTeam.teamId}/primary/L/logo.svg`;
   var awayTeamLogoURL = `https://cdn.nba.com/logos/nba/${game.awayTeam.teamId}/primary/L/logo.svg`;
 
