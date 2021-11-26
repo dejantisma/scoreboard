@@ -48,7 +48,7 @@ export async function getStaticPaths() {
   const paths = await getAllGameIds();
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 
