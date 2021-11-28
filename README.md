@@ -14,3 +14,9 @@ NextJS application with React-Bootstrap that [displays live NBA scores, leaders,
 ## Leaders
 
 ![Leaders](/imgs/img3.png)
+
+## To Do
+
+1) Style games list page (probably using React-Bootstrap Cards)
+2) Player stats/box score under current game score
+3) Functionality on search page
