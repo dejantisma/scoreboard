@@ -20,7 +20,8 @@ export default function Layout({ children, home }) {
               width="100%"
           
             />
-            <h1>{name}</h1>
+            
+            <h1 className={utilStyles.Applogo}>{name}</h1>
           </>
         ) 
         

@@ -28,6 +28,13 @@ export default function Games({ scoreboardData }) {
       <Head>
         <title>Games</title>
       </Head>
+
+      {/* <Row>
+    <Col>1 of 2</Col>
+    <Col>2 of 2</Col>
+  </Row> */}
+
+
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <ul className={utilStyles.list}>
           {games.map(({ gameId, gameStatusText, homeTeam, awayTeam }) => (
